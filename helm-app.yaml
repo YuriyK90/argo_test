@@ -12,7 +12,7 @@ spec:
     # path: helm/argo-app
     # repoURL: https://github.com/christianh814/gitops-examples\
     path: quarkus-subchart/
-    repoURL: https://github.com/YuriyK90/tets
+    repoURL: https://github.com/YuriyK90/argo_test
     targetRevision: main
   syncPolicy:
     automated:
