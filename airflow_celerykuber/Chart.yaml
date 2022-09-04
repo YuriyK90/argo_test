@@ -11,11 +11,12 @@
 #   # repository: https://kubernetes-charts.storage.googleapis.com
 #   repository: https://charts.helm.sh/stable
 #   # repository: stable/airflow
+# https://github.com/airflow-helm/charts/tree/main/charts/airflow
 apiVersion: v2
 description: Airflow Helm Chart (User Community) - the standard way to deploy Apache Airflow on Kubernetes with Helm
 name: airflow
 version: 8.6.1
-appVersion: 2.2.5
+appVersion: 2.3.0
 icon: https://airflow.apache.org/_images/pin_large.png
 home: https://github.com/airflow-helm/charts/tree/main/charts/airflow
 maintainers:
