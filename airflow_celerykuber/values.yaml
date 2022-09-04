@@ -107,7 +107,7 @@ airflow:
 ###################################
 scheduler:
   ## the number of scheduler Pods to run
-  replicas: 1
+  replicas: 2
 
   ## resource requests/limits for the scheduler Pods
   ## [SPEC] https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#resourcerequirements-v1-core
@@ -172,7 +172,7 @@ workers:
   enabled: true
 
   ## the number of worker Pods to run
-  replicas: 1
+  replicas: 2
 
   ## resource requests/limits for the worker Pods
   ## [SPEC] https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#resourcerequirements-v1-core
