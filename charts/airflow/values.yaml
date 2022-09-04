@@ -1399,8 +1399,9 @@ dags:
 
     ## the key in `dags.gitSync.sshSecret` with your ssh-key file
     ##
-    sshSecretKey: id_rsa
-    sshKeySecret: airflow-ssh-git-secret
+    # sshSecretKey: id_rsa
+    sshSecretKey: airflow-ssh-git-secret
+    # sshKeySecret: airflow-ssh-git-secret
 
     # uid: 65533
     ## the string value of a "known_hosts" file (for SSH only)
