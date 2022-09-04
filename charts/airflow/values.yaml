@@ -1306,12 +1306,7 @@ dags:
   gitSync:
     ## if the git-sync sidecar container is enabled
     ##
-    # enabled: false
-    enabled: true
-    repo: "https://github.com/marclamberti/airflow-dags.git"
-    # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
-    branch: "master"
-    revision: "HEAD"
+    enabled: false
 
     ## the git-sync container image
     ##
