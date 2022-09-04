@@ -6,8 +6,8 @@ appVersion: "1.0.0"
 dependencies:
 - name: airflow
   # version: "1.6.0"
-  # repository: https://charts.helm.sh/stable
   # version: 9.0.3
   version: stable/airflow
-  repository: https://kubernetes-charts.storage.googleapis.com
+  # repository: https://kubernetes-charts.storage.googleapis.com
+  repository: https://charts.helm.sh/stable
   # repository: stable/airflow
