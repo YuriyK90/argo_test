@@ -2177,3 +2177,15 @@ prometheusRule:
   ## - docs for alerting rules: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
   ##
   groups: []
+
+
+createUserJob: 
+  jobAnnotations: 
+    "argocd.argoproj.io/hook": Sync 
+    "argocd.argoproj.io/sync-wave": "0" 
+    "argocd.argoproj.io/hook-delete-policy": BeforeHookCreation,HookSucceeded 
+migrateDatabaseJob: 
+  jobAnnotations: 
+    "argocd.argoproj.io/hook": Sync 
+    "argocd.argoproj.io/sync-wave": "0" 
+    "argocd.argoproj.io/hook-delete-policy": BeforeHookCreation,HookSucceeded
