@@ -62,7 +62,11 @@ airflow:
   ##     # ether environment variables
   ##     HTTP_PROXY: "http://proxy.example.com:8080"
   ##
-  config: {}
+  # config: {}
+  config:
+    AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
+    # AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "True"
 
   ## a list of users to create
   ## - templates can ONLY be used in: `password`, `email`, `firstName`, `lastName`
@@ -501,7 +505,7 @@ scheduler:
   ## the number of scheduler Pods to run
   ## - if you set this >1 we recommend defining a `scheduler.podDisruptionBudget`
   ##
-  replicas: 1
+  replicas: 2
 
   ## resource requests/limits for the scheduler Pod
   ## - spec of ResourceRequirements:
@@ -819,7 +823,7 @@ workers:
   ## - if you set this >1 we recommend defining a `workers.podDisruptionBudget`
   ## - this is the minimum when `workers.autoscaling.enabled` is true
   ##
-  replicas: 1
+  replicas: 2
 
   ## resource requests/limits for the worker Pod
   ## - spec for ResourceRequirements:
