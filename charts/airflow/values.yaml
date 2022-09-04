@@ -237,22 +237,22 @@ airflow:
   ## - spec for VolumeMount:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volumemount-v1-core
   ##
-  # extraVolumeMounts: []
-  extraVolumeMounts:
+  extraVolumeMounts: []
+  # extraVolumeMounts:
     ## spec: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volumemount-v1-core
-    - name: logs-volume
-      mountPath: /opt/airflow/logs
+    # - name: logs-volume
+      # mountPath: /opt/airflow/logs
 
   ## extra Volumes for the airflow Pods
   ## - spec for Volume:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
-  # extraVolumes: []
-  extraVolumes:
+  extraVolumes: []
+  # extraVolumes:
     ## spec: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
-    - name: logs-volume
-      persistentVolumeClaim:
-        claimName: my-existing-persistent-volume-claim
+    # - name: logs-volume
+      # persistentVolumeClaim:
+        # claimName: my-existing-persistent-volume-claim
 
   ## kubernetes cluster domain name
   ## - configured in the kubelet with `--cluster-domain` flag (deprecated):
