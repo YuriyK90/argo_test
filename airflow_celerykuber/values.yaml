@@ -9,8 +9,7 @@ airflow:
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/configuration/airflow-version.md
   image:
     repository: apache/airflow
-    # tag: 2.2.5-python3.8
-    tag: 2.3.4-python3.10
+    tag: 2.2.5-python3.8
 
   ## the airflow executor type to use
   executor: CeleryKubernetesExecutor
@@ -29,9 +28,7 @@ airflow:
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/configuration/airflow-configs.md
   config:
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
-    AIRFLOW__CORE__LOAD_EXAMPLES: "True"
-    AIRFLOW__WEBSERVER__BASE_URL: "http://test-for-study.ru/airflow"
-    AIRFLOW__CELERY__FLOWER_URL_PREFIX: '/flower'
+    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
 
   ## a list of users to create
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/security/airflow-users.md
@@ -107,7 +104,7 @@ airflow:
 ###################################
 scheduler:
   ## the number of scheduler Pods to run
-  replicas: 2
+  replicas: 1
 
   ## resource requests/limits for the scheduler Pods
   ## [SPEC] https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#resourcerequirements-v1-core
@@ -172,7 +169,7 @@ workers:
   enabled: true
 
   ## the number of worker Pods to run
-  replicas: 2
+  replicas: 1
 
   ## resource requests/limits for the worker Pods
   ## [SPEC] https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#resourcerequirements-v1-core
@@ -247,11 +244,7 @@ dags:
   ## configs for the git-sync sidecar
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/dags/load-dag-definitions.md
   gitSync:
-    enabled: true
-    repo: "https://github.com/marclamberti/airflow-dags.git"
-    # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
-    branch: "master"
-    revision: "HEAD"
+    enabled: false
 
 ###################################
 ## CONFIG | Kubernetes Ingress
@@ -259,22 +252,7 @@ dags:
 ingress:
   ## if we should deploy Ingress resources
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/kubernetes/ingress.md
-  enabled: true
-  
-  web:
-    annotations: {}
-    host: "test-for-study.ru"
-    path: "/airflow"
-    ## WARNING: requires Kubernetes 1.18 or later, use "kubernetes.io/ingress.class" annotation for older versions
-    ingressClassName: "nginx"
-
-    ## flower ingress configs
-  flower:
-    annotations: {}
-    host: "test-for-study.ru"
-    path: "/flower"
-    ## WARNING: requires Kubernetes 1.18 or later, use "kubernetes.io/ingress.class" annotation for older versions
-    ingressClassName: "nginx"
+  enabled: false
 
 ###################################
 ## CONFIG | Kubernetes ServiceAccount
