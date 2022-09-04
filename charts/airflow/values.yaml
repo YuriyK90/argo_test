@@ -66,8 +66,8 @@ airflow:
   # config: {}
   config:
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
-    # AIRFLOW__CORE__LOAD_EXAMPLES: "False"
-    AIRFLOW__CORE__LOAD_EXAMPLES: "True"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    # AIRFLOW__CORE__LOAD_EXAMPLES: "True"
 
   ## a list of users to create
   ## - templates can ONLY be used in: `password`, `email`, `firstName`, `lastName`
@@ -1323,10 +1323,6 @@ dags:
     ## if the git-sync sidecar container is enabled
     ##
     enabled: true
-    repo: "https://github.com/marclamberti/airflow-dags.git"
-    # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
-    branch: "master"
-    revision: "HEAD"
 
     ## the git-sync container image
     ##
@@ -1353,7 +1349,9 @@ dags:
     ##   # ssh git repo
     ##   repo: "git@github.com:USERNAME/REPOSITORY.git"
     ##
-    repo: ""
+    # repo: ""
+    repo: "https://github.com/marclamberti/airflow-dags.git"
+    # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
 
     ## the sub-path within your repo where dags are located
     ## - only dags under this path within your repo will be seen by airflow,
