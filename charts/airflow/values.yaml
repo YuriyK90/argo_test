@@ -10,7 +10,8 @@ airflow:
   ##
   image:
     repository: apache/airflow
-    tag: 2.2.5-python3.8
+    # tag: 2.2.5-python3.8
+    tag: 2.3.4-python3.10
     pullPolicy: IfNotPresent
     pullSecret: ""
     uid: 50000
@@ -1305,7 +1306,12 @@ dags:
   gitSync:
     ## if the git-sync sidecar container is enabled
     ##
-    enabled: false
+    # enabled: false
+    enabled: true
+    repo: "https://github.com/marclamberti/airflow-dags.git"
+    # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
+    branch: "master"
+    revision: "HEAD"
 
     ## the git-sync container image
     ##
