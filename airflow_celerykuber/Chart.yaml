@@ -17,7 +17,7 @@ keywords:
   - workflow
 dependencies:
   - name: airflow
-    version: 2.3.4
+    version: 2.3.0
     repository: https://airflow-helm.github.io/charts
     condition: airflow.enabled
   - name: postgresql
