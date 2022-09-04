@@ -9,7 +9,8 @@ airflow:
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/configuration/airflow-version.md
   image:
     repository: apache/airflow
-    tag: 2.2.5-python3.8
+    tag: 2.3.4-python3.10
+    # tag: 2.2.5-python3.8
 
   ## the airflow executor type to use
   executor: CeleryKubernetesExecutor
@@ -28,7 +29,8 @@ airflow:
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/configuration/airflow-configs.md
   config:
     AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "False"
-    AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    # AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    AIRFLOW__CORE__LOAD_EXAMPLES: "True"
 
   ## a list of users to create
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/security/airflow-users.md
@@ -104,7 +106,7 @@ airflow:
 ###################################
 scheduler:
   ## the number of scheduler Pods to run
-  replicas: 1
+  replicas: 2
 
   ## resource requests/limits for the scheduler Pods
   ## [SPEC] https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#resourcerequirements-v1-core
@@ -133,7 +135,7 @@ scheduler:
 ###################################
 web:
   ## the number of web Pods to run
-  replicas: 1
+  replicas: 2
 
   ## resource requests/limits for the web Pods
   ## [SPEC] https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#resourcerequirements-v1-core
@@ -169,7 +171,7 @@ workers:
   enabled: true
 
   ## the number of worker Pods to run
-  replicas: 1
+  replicas: 2
 
   ## resource requests/limits for the worker Pods
   ## [SPEC] https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#resourcerequirements-v1-core
@@ -244,7 +246,12 @@ dags:
   ## configs for the git-sync sidecar
   ## [FAQ] https://github.com/airflow-helm/charts/blob/main/charts/airflow/docs/faq/dags/load-dag-definitions.md
   gitSync:
-    enabled: false
+    # enabled: false
+    enabled: true
+    repo: "https://github.com/marclamberti/airflow-dags.git"
+    # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
+    branch: "master"
+    revision: "HEAD"
 
 ###################################
 ## CONFIG | Kubernetes Ingress
