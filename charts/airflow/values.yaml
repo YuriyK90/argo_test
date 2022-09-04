@@ -506,7 +506,7 @@ scheduler:
   ## the number of scheduler Pods to run
   ## - if you set this >1 we recommend defining a `scheduler.podDisruptionBudget`
   ##
-  replicas: 2
+  replicas: 1
 
   ## resource requests/limits for the scheduler Pod
   ## - spec of ResourceRequirements:
@@ -824,7 +824,7 @@ workers:
   ## - if you set this >1 we recommend defining a `workers.podDisruptionBudget`
   ## - this is the minimum when `workers.autoscaling.enabled` is true
   ##
-  replicas: 2
+  replicas: 1
 
   ## resource requests/limits for the worker Pod
   ## - spec for ResourceRequirements:
