@@ -256,9 +256,9 @@ airflow:
   
   extraVolumes:
     - name: git-ssh-key
-       secret:
-         secretName: airflow-ssh-git-secret
-         defaultMode: 256
+      secret:
+        secretName: airflow-ssh-git-secret
+        defaultMode: 256
 
   ## kubernetes cluster domain name
   ## - configured in the kubelet with `--cluster-domain` flag (deprecated):
@@ -389,8 +389,8 @@ airflow:
     extraVolumes:
     - name: git-ssh-key
        secret:
-         secretName: airflow-ssh-git-secret
-         defaultMode: 256
+        secretName: airflow-ssh-git-secret
+        defaultMode: 256
 
   ########################################
   ## COMPONENT | db-migrations Deployment
@@ -677,9 +677,9 @@ scheduler:
   # extraVolumes: []
   extraVolumes:
     - name: git-ssh-key
-       secret:
-         secretName: airflow-ssh-git-secret
-         defaultMode: 256
+      secret:
+        secretName: airflow-ssh-git-secret
+        defaultMode: 256
 
   ## extra init containers to run in the scheduler Pods
   ## - spec of Container:
@@ -839,9 +839,9 @@ web:
   # extraVolumes: []
   extraVolumes:
     - name: git-ssh-key
-       secret:
-         secretName: airflow-ssh-git-secret
-         defaultMode: 256
+      secret:
+        secretName: airflow-ssh-git-secret
+        defaultMode: 256
 
 ###################################
 ## COMPONENT | Airflow Workers
@@ -1014,9 +1014,9 @@ workers:
   # extraVolumes: []
   extraVolumes:
     - name: git-ssh-key
-       secret:
-         secretName: airflow-ssh-git-secret
-         defaultMode: 256
+      secret:
+        secretName: airflow-ssh-git-secret
+        defaultMode: 256
 
 ###################################
 ## COMPONENT | Triggerer
@@ -1132,9 +1132,9 @@ triggerer:
   # extraVolumes: []
   extraVolumes:
     - name: git-ssh-key
-       secret:
-         secretName: airflow-ssh-git-secret
-         defaultMode: 256
+      secret:
+        secretName: airflow-ssh-git-secret
+        defaultMode: 256
 
 ###################################
 ## COMPONENT | Flower
@@ -1273,9 +1273,9 @@ flower:
   # extraVolumes: []
   extraVolumes:
     - name: git-ssh-key
-       secret:
-         secretName: airflow-ssh-git-secret
-         defaultMode: 256
+      secret:
+        secretName: airflow-ssh-git-secret
+        defaultMode: 256
 
 ###################################
 ## CONFIG | Airflow Logs
