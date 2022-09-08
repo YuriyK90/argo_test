@@ -1314,7 +1314,7 @@ logs:
     ## the size of PVC to request
     ##
     size: 1Gi
-
+webserverSecretKeySecretName:	airflow-webserver-secret-key
 ###################################
 ## CONFIG | Airflow DAGs
 ###################################
@@ -1693,6 +1693,7 @@ serviceAccount:
 ##                     done
 ##
 extraManifests: []
+
 
 ###################################
 ## DATABASE | PgBouncer
