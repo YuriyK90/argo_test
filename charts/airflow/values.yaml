@@ -1314,7 +1314,7 @@ logs:
     ## the size of PVC to request
     ##
     size: 1Gi
-webserverSecretKeySecretName:	airflow-webserver-secret-key
+    
 ###################################
 ## CONFIG | Airflow DAGs
 ###################################
@@ -1386,8 +1386,8 @@ dags:
     ##   repo: "git@github.com:USERNAME/REPOSITORY.git"
     ##
     # repo: ""
-    # repo: "https://github.com/marclamberti/airflow-dags.git"
-    repo: "git@github.com:YuriyK90/dags.git"
+    repo: "https://github.com/marclamberti/airflow-dags.git"
+    # repo: "git@github.com:YuriyK90/dags.git"
     # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
 
     ## the sub-path within your repo where dags are located
