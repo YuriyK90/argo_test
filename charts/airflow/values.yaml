@@ -247,12 +247,18 @@ airflow:
   ## - spec for Volume:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
-  extraVolumes: []
+  # extraVolumes: []
   # extraVolumes:
     ## spec: https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
     # - name: logs-volume
       # persistentVolumeClaim:
         # claimName: my-existing-persistent-volume-claim
+  
+  extraVolumes:
+    - name: git-ssh-key
+       secret:
+         secretName: airflow-ssh-git-secret
+         defaultMode: 256
 
   ## kubernetes cluster domain name
   ## - configured in the kubelet with `--cluster-domain` flag (deprecated):
@@ -379,7 +385,12 @@ airflow:
     ## - spec for Volume:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
     ##
-    extraVolumes: []
+    # extraVolumes: []
+    extraVolumes:
+    - name: git-ssh-key
+       secret:
+         secretName: airflow-ssh-git-secret
+         defaultMode: 256
 
   ########################################
   ## COMPONENT | db-migrations Deployment
@@ -388,7 +399,7 @@ airflow:
     ## if the db-migrations Deployment/Job is created
     ## - [WARNING] if `false`, you have to MANUALLY run `airflow db upgrade` when required
     ##
-    enabled: true
+    enabled: false
 
     ## if a post-install helm Job should be used (instead of a Deployment)
     ## - [WARNING] setting `true` will NOT work with the helm `--wait` flag,
@@ -663,7 +674,12 @@ scheduler:
   ## - spec of Volume:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
-  extraVolumes: []
+  # extraVolumes: []
+  extraVolumes:
+    - name: git-ssh-key
+       secret:
+         secretName: airflow-ssh-git-secret
+         defaultMode: 256
 
   ## extra init containers to run in the scheduler Pods
   ## - spec of Container:
@@ -820,7 +836,12 @@ web:
   ## - spec for Volume:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
-  extraVolumes: []
+  # extraVolumes: []
+  extraVolumes:
+    - name: git-ssh-key
+       secret:
+         secretName: airflow-ssh-git-secret
+         defaultMode: 256
 
 ###################################
 ## COMPONENT | Airflow Workers
@@ -990,7 +1011,12 @@ workers:
   ## - spec for Volume:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
-  extraVolumes: []
+  # extraVolumes: []
+  extraVolumes:
+    - name: git-ssh-key
+       secret:
+         secretName: airflow-ssh-git-secret
+         defaultMode: 256
 
 ###################################
 ## COMPONENT | Triggerer
@@ -1103,7 +1129,12 @@ triggerer:
   ## - spec for Volume:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
-  extraVolumes: []
+  # extraVolumes: []
+  extraVolumes:
+    - name: git-ssh-key
+       secret:
+         secretName: airflow-ssh-git-secret
+         defaultMode: 256
 
 ###################################
 ## COMPONENT | Flower
@@ -1239,7 +1270,12 @@ flower:
   ## - spec for Volume:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
-  extraVolumes: []
+  # extraVolumes: []
+  extraVolumes:
+    - name: git-ssh-key
+       secret:
+         secretName: airflow-ssh-git-secret
+         defaultMode: 256
 
 ###################################
 ## CONFIG | Airflow Logs
@@ -1413,7 +1449,7 @@ dags:
     ##   sshKnownHosts: |-
     ##     <HOST_NAME> ssh-rsa <HOST_KEY>
     ##
-    sshKnownHosts: ""
+    # sshKnownHosts: ""
 
     ## the number of consecutive failures allowed before aborting
     ##  - the first sync must succeed
