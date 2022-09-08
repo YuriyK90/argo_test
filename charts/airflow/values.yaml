@@ -254,11 +254,11 @@ airflow:
       # persistentVolumeClaim:
         # claimName: my-existing-persistent-volume-claim
   
-  extraVolumes:
-    - name: git-ssh-key
-      secret:
-        secretName: airflow-ssh-git-secret
-        defaultMode: 256
+  # extraVolumes:
+  #   - name: git-ssh-key
+  #     secret:
+  #       secretName: airflow-ssh-git-secret
+  #       defaultMode: 256
 
   ## kubernetes cluster domain name
   ## - configured in the kubelet with `--cluster-domain` flag (deprecated):
@@ -386,11 +386,11 @@ airflow:
     ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
     ##
     # extraVolumes: []
-    extraVolumes:
-    - name: git-ssh-key
-       secret:
-        secretName: airflow-ssh-git-secret
-        defaultMode: 256
+    # extraVolumes:
+    # - name: git-ssh-key
+    #    secret:
+    #     secretName: airflow-ssh-git-secret
+    #     defaultMode: 256
 
   ########################################
   ## COMPONENT | db-migrations Deployment
@@ -675,11 +675,11 @@ scheduler:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
   # extraVolumes: []
-  extraVolumes:
-    - name: git-ssh-key
-      secret:
-        secretName: airflow-ssh-git-secret
-        defaultMode: 256
+  # extraVolumes:
+  #   - name: git-ssh-key
+  #     secret:
+  #       secretName: airflow-ssh-git-secret
+  #       defaultMode: 256
 
   ## extra init containers to run in the scheduler Pods
   ## - spec of Container:
@@ -837,11 +837,11 @@ web:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
   # extraVolumes: []
-  extraVolumes:
-    - name: git-ssh-key
-      secret:
-        secretName: airflow-ssh-git-secret
-        defaultMode: 256
+  # extraVolumes:
+  #   - name: git-ssh-key
+  #     secret:
+  #       secretName: airflow-ssh-git-secret
+  #       defaultMode: 256
 
 ###################################
 ## COMPONENT | Airflow Workers
@@ -1012,11 +1012,11 @@ workers:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
   # extraVolumes: []
-  extraVolumes:
-    - name: git-ssh-key
-      secret:
-        secretName: airflow-ssh-git-secret
-        defaultMode: 256
+  # extraVolumes:
+  #   - name: git-ssh-key
+  #     secret:
+  #       secretName: airflow-ssh-git-secret
+  #       defaultMode: 256
 
 ###################################
 ## COMPONENT | Triggerer
@@ -1130,11 +1130,11 @@ triggerer:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
   # extraVolumes: []
-  extraVolumes:
-    - name: git-ssh-key
-      secret:
-        secretName: airflow-ssh-git-secret
-        defaultMode: 256
+  # extraVolumes:
+  #   - name: git-ssh-key
+  #     secret:
+  #       secretName: airflow-ssh-git-secret
+  #       defaultMode: 256
 
 ###################################
 ## COMPONENT | Flower
@@ -1271,11 +1271,11 @@ flower:
   ##   https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.20/#volume-v1-core
   ##
   # extraVolumes: []
-  extraVolumes:
-    - name: git-ssh-key
-      secret:
-        secretName: airflow-ssh-git-secret
-        defaultMode: 256
+  # extraVolumes:
+  #   - name: git-ssh-key
+  #     secret:
+  #       secretName: airflow-ssh-git-secret
+  #       defaultMode: 256
 
 ###################################
 ## CONFIG | Airflow Logs
@@ -1387,7 +1387,7 @@ dags:
     ##
     # repo: ""
     # repo: "https://github.com/marclamberti/airflow-dags.git"
-    repo: "git@github.com:YuriyK90/dags.git"
+    repo: "ssh://git@github.com:YuriyK90/dags.git"
     # repo: "ssh://study-ya.gitlab.yandexcloud.net/y-kuchits/airflow-dags"
 
     ## the sub-path within your repo where dags are located
@@ -1437,6 +1437,7 @@ dags:
     ## the key in `dags.gitSync.sshSecret` with your ssh-key file
     ##
     # sshSecretKey: id_rsa
+    # sshSecretKey: airflow-ssh-git-secret
     sshSecretKey: airflow-ssh-git-secret
     # sshKeySecret: airflow-ssh-git-secret
 
