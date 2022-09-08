@@ -1431,7 +1431,7 @@ dags:
 
     ## the name of a pre-created Secret with git ssh credentials
     ##
-    # sshSecret: "airflow-ssh-git-secret"
+    sshSecret: "id_rsa"
     credentialsSecret: git-credentials
 
     ## the key in `dags.gitSync.sshSecret` with your ssh-key file
